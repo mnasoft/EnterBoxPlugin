@@ -14,13 +14,14 @@ include_directories(
   src
 #   
   /usr/local/include/MNAS_lib/
-#   ../ns_MNAS_lib/ns_MNAS_CodePage  
-#   ../ns_MNAS_lib/ns_MNAS_Error
-#   ../ns_MNAS_lib/ns_MNAS_Gases 
-#   ../ns_MNAS_lib/ns_MNAS_HalfDiv
-#   ../ns_MNAS_lib/ns_MNAS_Matrix
-#   ../ns_MNAS_lib/ns_MNAS_MendeleevTbl
-#   ../ns_MNAS_lib/ns_MNAS_ValDimension
+#
+  ../ns_MNAS_lib/ns_MNAS_CodePage  
+  ../ns_MNAS_lib/ns_MNAS_Error
+  ../ns_MNAS_lib/ns_MNAS_Gases 
+  ../ns_MNAS_lib/ns_MNAS_HalfDiv
+  ../ns_MNAS_lib/ns_MNAS_Matrix
+  ../ns_MNAS_lib/ns_MNAS_MendeleevTbl
+  ../ns_MNAS_lib/ns_MNAS_ValDimension
 )
 
 set(EnterBoxPlugin_SRCS
@@ -42,7 +43,7 @@ qt4_automoc(${EnterBoxPlugin_SRCS})
 
 add_library (EnterBoxPlugin SHARED ${EnterBoxPlugin_SRCS} ${EnterBoxPlugin_UIS_H})
 
-find_library(MLIB ns_MNAS_lib /usr/local/lib64 )
+find_library(ns_MNAS_lib ns_MNAS_lib /usr/local/lib64 ../ns_MNAS_lib/build )
 
 target_link_libraries(EnterBoxPlugin 
   ${QT_QTCORE_LIBRARY} 
@@ -50,7 +51,7 @@ target_link_libraries(EnterBoxPlugin
   ${QT_QTDESIGNER_LIBRARY} 
   ${QT_QTSCRIPTTOOLS_LIBRARY}
   ${QT_QTXML_LIBRARY}
-  ${MLIB}
+  ${ns_MNAS_lib}
 )
 
 if (${arch} MATCHES "x86_64")
