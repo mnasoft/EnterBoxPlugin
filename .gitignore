@@ -16,3 +16,6 @@ build/
 
 # Backup files
 *~
+
+.kdev4/
+*.kdev4
