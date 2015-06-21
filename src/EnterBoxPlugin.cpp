@@ -85,4 +85,4 @@ QString EnterBoxPlugin::includeFile() const
     return "EnterBox.h";
 }
 
-Q_EXPORT_PLUGIN2(customwidgetplugin, EnterBoxPlugin)
+//Q_EXPORT_PLUGIN2(customwidgetplugin, EnterBoxPlugin);

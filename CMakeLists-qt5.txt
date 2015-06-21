@@ -1,0 +1,80 @@
+cmake_minimum_required(VERSION 2.8.12)
+project(EnterBoxPlugin)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+
+find_package(Qt5Core)
+find_package(Qt5Gui)
+find_package(Qt5Xml)
+find_package(Qt5Designer)
+
+message ("Qt5Core_INCLUDE_DIRS     = ${Qt5Core_INCLUDE_DIRS}")
+message ("Qt5Gui_INCLUDE_DIRS      = ${Qt5Gui_INCLUDE_DIRS}")
+message ("Qt5Widgets_INCLUDE_DIRS  = ${Qt5Widgets_INCLUDE_DIRS}")  
+message ("Qt5Xml_INCLUDE_DIRS      = ${Qt5Xml_INCLUDE_DIRS}")
+message ("Qt5Designer_INCLUDE_DIRS = ${Qt5Designer_INCLUDE_DIRS}")
+
+include_directories(
+  ${Qt5Designer_INCLUDE_DIRS}
+  src
+#   
+  /home/namatv/usr/include/ns_MNAS_lib/ns_MNAS_Error
+  /home/namatv/usr/include/ns_MNAS_lib/ns_MNAS_CodePage  
+  /home/namatv/usr/include/ns_MNAS_lib/ns_MNAS_Error
+  /home/namatv/usr/include/ns_MNAS_lib/ns_MNAS_Gases 
+  /home/namatv/usr/include/ns_MNAS_lib/ns_MNAS_HalfDiv
+  /home/namatv/usr/include/ns_MNAS_lib/ns_MNAS_Matrix
+  /home/namatv/usr/include/ns_MNAS_lib/ns_MNAS_MendeleevTbl
+  /home/namatv/usr/include/ns_MNAS_lib/ns_MNAS_ValDimension
+)
+
+set(EnterBoxPlugin_SRCS
+  ./src/EnterBox.cpp
+  ./src/EnterBoxPlugin.cpp
+)
+
+#  build/ui_EnterBox.h
+set(EnterBoxPlugin_HEADERS 
+  src/EnterBox.h
+  src/EnterBoxPlugin.h
+)
+
+#set(EnterBoxPlugin_UIS ./forms/EnterBox.ui)
+
+add_library (EnterBoxPlugin SHARED ${EnterBoxPlugin_SRCS} ${EnterBoxPlugin_UIS_H})
+
+if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+  message ("CMAKE_SYSTEM_NAME = Windows")
+#  set(CMAKE_INSTALL_PREFIX d:/home/_namatv/usr)
+  set(CMAKE_INSTALL_PREFIX e:/home/namatv/usr)
+endif (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+
+if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+  message ("CMAKE_SYSTEM_NAME = Linux")
+  set(CMAKE_INSTALL_PREFIX /home/namatv/usr)
+endif (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+
+find_library(ns_MNAS_lib ns_MNAS_lib /home/namatv/usr/lib)
+
+target_link_libraries(EnterBoxPlugin 
+  ${QT_QTCORE_LIBRARY} 
+  ${QT_QTGUI_LIBRARY} 
+  ${QT_QTDESIGNER_LIBRARY} 
+  ${QT_QTSCRIPTTOOLS_LIBRARY}
+  ${QT_QTXML_LIBRARY}
+  ${ns_MNAS_lib}
+)
+
+
+install(
+  TARGETS EnterBoxPlugin
+  RUNTIME DESTINATION bin
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib/static)
+
+#install (FILES 
+#  ${EnterBoxPlugin_HEADERS}
+#  ${EnterBoxPlugin_UIS}
+#  ${EnterBoxPlugin_UIS_H}
+#  DESTINATION include/EnterBoxPlugin)
