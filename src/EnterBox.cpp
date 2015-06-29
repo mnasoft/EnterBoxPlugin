@@ -1,13 +1,5 @@
 #include "EnterBox.h"
 
-#include "EnterBox.moc" // new
-
-// QTextStream out (stdout); При этом возникала ощибка сегментирования.
-// QTextStream in (stdin); При этом возникала ощибка сегментирования.
-
-//extern	QTextStream out ;
-//extern	QTextStream in ;
-
 	bool EnterBox::is_init_str_values=false;
 
 	QString

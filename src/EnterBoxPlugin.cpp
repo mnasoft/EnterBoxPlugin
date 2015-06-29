@@ -1,9 +1,7 @@
 #include "EnterBoxPlugin.h"
 #include "EnterBox.h"
 
-#include <QtPlugin>
-
-#include  "EnterBoxPlugin.moc" //new
+#include <QtPlugin> //#include  "EnterBoxPlugin.moc"
 
 EnterBoxPlugin::EnterBoxPlugin(QObject *parent)
     : QObject(parent)
@@ -36,7 +34,7 @@ QString EnterBoxPlugin::name() const
 
 QString EnterBoxPlugin::group() const
 {
-    return "MNAsoft";
+    return QLatin1String("MNAsoft_EB");
 }
 
 QIcon EnterBoxPlugin::icon() const
@@ -85,4 +83,3 @@ QString EnterBoxPlugin::includeFile() const
     return "EnterBox.h";
 }
 
-//Q_EXPORT_PLUGIN2(customwidgetplugin, EnterBoxPlugin);

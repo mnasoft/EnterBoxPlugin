@@ -1,12 +1,12 @@
 #ifndef ENTERBOX_H
 #define ENTERBOX_H
 
-#include "ui_EnterBox.h"
-#include "nm_value.h"
-
+#include <QWidget>
 #include <QStringList>
 #include <QTextStream>
-#include <QtDesigner/QDesignerExportWidget>
+
+#include "nm_value.h"
+#include "ui_EnterBox.h"
 
 ///Виджет, предназначенный для ввода размерных физических величин.
 /**
@@ -133,13 +133,12 @@
 
  */
 
-class QDESIGNER_WIDGET_EXPORT EnterBox: public QWidget
+class EnterBox: public QWidget
 {
 Q_OBJECT
 	
 public:
 	EnterBox(QWidget *parent = 0, const nm_value & aVal=nm_value(0), int exp=0, bool lock_Type=false);
-
 
 	void printValueType();															///<Вывод отладочной информации на стандартный вывод.
 	void printValueDimension();													///<Вывод отладочной информации на стандартный вывод.

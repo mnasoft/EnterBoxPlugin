@@ -1,15 +1,13 @@
 #ifndef ENTERBOXPLUGIN_H
 #define ENTERBOXPLUGIN_H
 
-
 #include <QDesignerCustomWidgetInterface>
 
 class EnterBoxPlugin : public QObject, public QDesignerCustomWidgetInterface
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QDesignerCustomWidgetInterface")
-//FILE "enterboxplugin.json")
     Q_INTERFACES(QDesignerCustomWidgetInterface)
+
 
 public:
     EnterBoxPlugin(QObject *parent = 0);
@@ -31,4 +29,3 @@ private:
 };
 
 #endif
-
