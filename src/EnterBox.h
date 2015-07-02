@@ -132,8 +132,9 @@
 Единица измерения - это ComboBox, содержащий одно или несколько значений соответствующих типу размерности физической величины \n
 
  */
+#include "enterbox_lib_global.h"
 
-class EnterBox: public QWidget
+class ENTERBOX_EXPORT EnterBox: public QWidget
 {
 Q_OBJECT
 	

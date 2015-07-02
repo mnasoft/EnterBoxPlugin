@@ -2,6 +2,11 @@ CONFIG      += plugin debug_and_release
 TARGET      = $$qtLibraryTarget(mnasoft_eb)
 TEMPLATE    = lib
 
+CONFIG      -= debug
+CONFIG      += release
+
+DEFINES     += ENTERBOX_LIBRARY
+
 INCLUDEPATH += src
 INCLUDEPATH += ../mnasoft_lib \
                ../mnasoft_lib/ns_MNAS_CodePage \
