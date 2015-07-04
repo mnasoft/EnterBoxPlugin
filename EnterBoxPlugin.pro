@@ -20,7 +20,7 @@ INCLUDEPATH += ../mnasoft_lib \
 HEADERS     =  src/EnterBoxPlugin.h mnasoft.h
 SOURCES     =  src/EnterBoxPlugin.cpp mnasoft.cpp
 RESOURCES   = icons.qrc
-unix:LIBS  += -L. -L/usr/local/lib -lmnas
+unix:LIBS  += -L/home/namatv/usr/lib -lmnas
 win32:LIBS += -L. E:/home/namatv/usr/bin/mnas.dll
 
 
@@ -34,3 +34,4 @@ target.path = $$[QT_INSTALL_PLUGINS]/designer
 INSTALLS    += target
 
 include(enterbox.pri)
+
