@@ -1,0 +1,12 @@
+#ifndef ENTERBOX_LIB_GLOBAL_H
+#define ENTERBOX_LIB_GLOBAL_H
+
+#include <QtCore/QtGlobal>
+
+#if defined(ENTERBOX_LIBRARY)
+#  define ENTERBOX_EXPORT Q_DECL_EXPORT
+#else
+#  define ENTERBOX_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif //MNASOFT_LIB_GLOBAL_H
