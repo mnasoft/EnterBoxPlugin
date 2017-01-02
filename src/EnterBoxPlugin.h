@@ -1,7 +1,8 @@
 #ifndef ENTERBOXPLUGIN_H
 #define ENTERBOXPLUGIN_H
 
-#include <QDesignerCustomWidgetInterface>
+//#include <QDesignerCustomWidgetInterface>
+#include <QtUiPlugin/QDesignerCustomWidgetInterface>
 
 class EnterBoxPlugin : public QObject, public QDesignerCustomWidgetInterface
 {

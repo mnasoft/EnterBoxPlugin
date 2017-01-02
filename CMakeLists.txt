@@ -31,29 +31,29 @@ include_directories(
   ${Qt5Designer_INCLUDE_DIRS}
   src
 #
-  ${CMAKE_INSTALL_PREFIX}/include/mnasoft_lib
-  ${CMAKE_INSTALL_PREFIX}/include/mnasoft_lib/ns_MNAS_Error
-  ${CMAKE_INSTALL_PREFIX}/include/mnasoft_lib/ns_MNAS_CodePage
-  ${CMAKE_INSTALL_PREFIX}/include/mnasoft_lib/ns_MNAS_Error
-  ${CMAKE_INSTALL_PREFIX}/include/mnasoft_lib/ns_MNAS_Gases
-  ${CMAKE_INSTALL_PREFIX}/include/mnasoft_lib/ns_MNAS_HalfDiv
-  ${CMAKE_INSTALL_PREFIX}/include/mnasoft_lib/ns_MNAS_Matrix
-  ${CMAKE_INSTALL_PREFIX}/include/mnasoft_lib/ns_MNAS_MendeleevTbl
-  ${CMAKE_INSTALL_PREFIX}/include/mnasoft_lib/ns_MNAS_ValDimension
+  ${CMAKE_INSTALL_PREFIX}/include/mnas
+  ${CMAKE_INSTALL_PREFIX}/include/mnas/ns_MNAS_Error
+  ${CMAKE_INSTALL_PREFIX}/include/mnas/ns_MNAS_CodePage
+  ${CMAKE_INSTALL_PREFIX}/include/mnas/ns_MNAS_Error
+  ${CMAKE_INSTALL_PREFIX}/include/mnas/ns_MNAS_Gases
+  ${CMAKE_INSTALL_PREFIX}/include/mnas/ns_MNAS_HalfDiv
+  ${CMAKE_INSTALL_PREFIX}/include/mnas/ns_MNAS_Matrix
+  ${CMAKE_INSTALL_PREFIX}/include/mnas/ns_MNAS_MendeleevTbl
+  ${CMAKE_INSTALL_PREFIX}/include/mnas/ns_MNAS_ValDimension
 )
 
 set(EnterBoxPlugin_SRCS src/EnterBox.cpp src/EnterBoxPlugin.cpp)
 
-set(EnterBoxPlugin_HEADERS src/EnterBox.h src/EnterBoxPlugin.h)
+set(EnterBoxPlugin_HEADERS src/EnterBox.h src/EnterBoxPlugin.h src/enterbox_lib_global.h)
 
 set(EnterBoxPlugin_UIS src/EnterBox.ui)
 set(EnterBoxPlugin_UIS_H build/ui_EnterBox.h)
 
 add_library (EnterBoxPlugin SHARED ${EnterBoxPlugin_SRCS})
 
-find_library(ns_MNAS_lib mnasoft_lib ${CMAKE_INSTALL_PREFIX}/lib ${CMAKE_INSTALL_PREFIX}/bin)
+find_library(mnas_lib mnas ${CMAKE_INSTALL_PREFIX}/lib ${CMAKE_INSTALL_PREFIX}/bin)
 
-target_link_libraries(EnterBoxPlugin Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Designer Qt5::Xml ${ns_MNAS_lib})
+target_link_libraries(EnterBoxPlugin Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Designer Qt5::Xml ${mnas_lib})
 
 install(
   TARGETS EnterBoxPlugin
