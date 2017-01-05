@@ -2,6 +2,14 @@ cmake_minimum_required(VERSION 2.8.12)
 
 project(EnterBoxPlugin)
 
+message ("CMAKE_SOURCE_DIR = ${CMAKE_SOURCE_DIR}")
+
+#set(INSTALL_PREFIX_FOR_WINDOWS "E:/PRG/msys64/home/namatv/usr")
+
+
+set(INSTALL_PREFIX_FOR_WINDOWS "${CMAKE_SOURCE_DIR}/../usr")
+set(INSTALL_PREFIX_FOR_LINUX   "/home/namatv/usr")
+
 add_definitions(-DENTERBOX_LIBRARY)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -35,16 +43,17 @@ find_package(Qt5Designer)
 #endif()
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-  message ("CMAKE_SYSTEM_NAME = Windows")
-#  set(CMAKE_INSTALL_PREFIX d:/home/_namatv/usr)
-#  set(CMAKE_INSTALL_PREFIX e:/home/namatv/usr)
-#  set(CMAKE_INSTALL_PREFIX /home/namatv/usr)
-  set(CMAKE_INSTALL_PREFIX E:/PRG/msys64/home/namatv/usr)  
+   set(CMAKE_INSTALL_PREFIX ${INSTALL_PREFIX_FOR_WINDOWS})
+
+  message ("CMAKE_SYSTEM_NAME = ${CMAKE_SYSTEM_NAME}")
+  message ("CMAKE_INSTALL_PREFIX =  ${CMAKE_INSTALL_PREFIX}")
 endif (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-  message ("CMAKE_SYSTEM_NAME = Linux")
-  set(CMAKE_INSTALL_PREFIX /home/namatv/usr)
+  set(CMAKE_INSTALL_PREFIX ${INSTALL_PREFIX_FOR_LINUX})
+  
+  message ("${BoldRed}CMAKE_SYSTEM_NAME = ${CMAKE_SYSTEM_NAME}${ColourReset}")
+  message ("${BoldGreen}CMAKE_INSTALL_PREFIX =  ${CMAKE_INSTALL_PREFIX}${ColourReset}")
 endif (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
 message ("Qt5Core_INCLUDE_DIRS     = ${Qt5Core_INCLUDE_DIRS}")
