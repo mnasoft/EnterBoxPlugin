@@ -1,6 +1,8 @@
 #ifndef ENTERBOX_H
 #define ENTERBOX_H
 
+#include "enterbox_lib_global.h"
+
 #include <QWidget>
 #include <QStringList>
 #include <QTextStream>
@@ -132,7 +134,6 @@
 Единица измерения - это ComboBox, содержащий одно или несколько значений соответствующих типу размерности физической величины \n
 
  */
-#include "enterbox_lib_global.h"
 
 class ENTERBOX_EXPORT EnterBox: public QWidget
 {
@@ -393,4 +394,4 @@ private:
 		lst_molar_weight;
 };
 
-#endif // ENTERVALUEBOX_H
+#endif //ENTERBOX_H

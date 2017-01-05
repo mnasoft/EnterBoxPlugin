@@ -9,4 +9,4 @@
 #  define ENTERBOX_EXPORT Q_DECL_IMPORT
 #endif
 
-#endif //MNASOFT_LIB_GLOBAL_H
+#endif //ENTERBOX_LIB_GLOBAL_H

@@ -1,10 +1,12 @@
 #ifndef ENTERBOXPLUGIN_H
 #define ENTERBOXPLUGIN_H
 
+#include "enterbox_lib_global.h"
+
 //#include <QDesignerCustomWidgetInterface>
 #include <QtUiPlugin/QDesignerCustomWidgetInterface>
 
-class EnterBoxPlugin : public QObject, public QDesignerCustomWidgetInterface
+class ENTERBOX_EXPORT EnterBoxPlugin : public QObject, public QDesignerCustomWidgetInterface
 {
     Q_OBJECT
     Q_INTERFACES(QDesignerCustomWidgetInterface)
@@ -29,4 +31,4 @@ private:
     bool initialized;
 };
 
-#endif
+#endif //ENTERBOXPLUGIN_H
