@@ -4,9 +4,6 @@ project(EnterBoxPlugin)
 
 message ("CMAKE_SOURCE_DIR = ${CMAKE_SOURCE_DIR}")
 
-#set(INSTALL_PREFIX_FOR_WINDOWS "E:/PRG/msys64/home/namatv/usr")
-
-
 set(INSTALL_PREFIX_FOR_WINDOWS "${CMAKE_SOURCE_DIR}/../usr")
 set(INSTALL_PREFIX_FOR_LINUX   "/home/namatv/usr")
 
@@ -43,15 +40,13 @@ find_package(Qt5Designer)
 #endif()
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-   set(CMAKE_INSTALL_PREFIX ${INSTALL_PREFIX_FOR_WINDOWS})
-
+  set(CMAKE_INSTALL_PREFIX ${INSTALL_PREFIX_FOR_WINDOWS})
   message ("CMAKE_SYSTEM_NAME = ${CMAKE_SYSTEM_NAME}")
   message ("CMAKE_INSTALL_PREFIX =  ${CMAKE_INSTALL_PREFIX}")
 endif (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   set(CMAKE_INSTALL_PREFIX ${INSTALL_PREFIX_FOR_LINUX})
-  
   message ("${BoldRed}CMAKE_SYSTEM_NAME = ${CMAKE_SYSTEM_NAME}${ColourReset}")
   message ("${BoldGreen}CMAKE_INSTALL_PREFIX =  ${CMAKE_INSTALL_PREFIX}${ColourReset}")
 endif (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
