@@ -77,7 +77,8 @@ set(EnterBoxPlugin_SRCS src/EnterBox.cpp src/EnterBoxPlugin.cpp)
 set(EnterBoxPlugin_HEADERS src/EnterBox.h src/EnterBoxPlugin.h src/enterbox_lib_global.h)
 
 set(EnterBoxPlugin_UIS src/EnterBox.ui)
-set(EnterBoxPlugin_UIS_H build/ui_EnterBox.h)
+set(EnterBoxPlugin_UIS_H build/EnterBoxPlugin_autogen/include/ui_EnterBox.h)
+# set(EnterBoxPlugin_UIS_H build/ui_EnterBox.h)
 
 add_library (EnterBoxPlugin SHARED ${EnterBoxPlugin_SRCS})
 
